@@ -5,7 +5,9 @@ Metal is a great API, but it can feel inaccessible for Swift developers due to a
 
 Swift's more concise syntax and reduced boilerplate can also make the code a lot more readable.
 
-Most game developers are coming from C++ so I understand why the samples are in C++, but the goal of this project is to port all of the Metal samples so that App developers can also learn metal without such a large barrier to entry.
+Most game developers are coming from C++ so I understand why the samples are in C++ / Objective-C, but the goal of this project is to port all of the Metal samples so that App developers can also learn metal without such a large barrier to entry.
+
+In the first pass only the macOS targets will be ported as the other targets add a lot of clutter, and the code is being tested on Apple Silicon and may not work on Intel.
 
 | Samples ported so far  | Original sample |
 | ------------- | ------------- |
