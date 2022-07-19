@@ -7,7 +7,7 @@ Swift's more concise syntax and reduced boilerplate can also make the code a lot
 
 Most game developers are coming from C++ so I understand why the samples are in C++, but the goal of this project is to port all of the Metal samples so that App developers can also learn metal without such a large barrier to entry.
 
-| Samples ported so far  | Link to original sample |
+| Samples ported so far  | Original sample |
 | ------------- | ------------- |
 | Performing Calculations on a GPU  | [link](https://developer.apple.com/documentation/metal/performing_calculations_on_a_gpu)  |
 | Using Metal to Draw a View’s Contents | [link](https://developer.apple.com/documentation/metal/using_metal_to_draw_a_view_s_contents) |
