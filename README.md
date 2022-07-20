@@ -16,5 +16,6 @@ In the first pass only the macOS targets will be ported as the other targets add
 | Using a Render Pipeline to Render Primitives | [link](https://developer.apple.com/documentation/metal/using_a_render_pipeline_to_render_primitives) |
 | Synchronizing CPU and GPU Work | [link](https://developer.apple.com/documentation/metal/resource_synchronization/synchronizing_cpu_and_gpu_work) |
 | Creating and Sampling Textures | [link](https://developer.apple.com/documentation/metal/textures/creating_and_sampling_textures) |
+| Calculating Primitive Visibility Using Depth Testing | [link](https://developer.apple.com/documentation/metal/render_passes/calculating_primitive_visibility_using_depth_testing) |
 | Adjusting the level of detail using Metal mesh shaders  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/adjusting_the_level_of_detail_using_metal_mesh_shaders)  |
 | Accelerating ray tracing using Metal  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/accelerating_ray_tracing_using_metal)  |
