@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AFA79C1288762DC00F5B349 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79C0288762DC00F5B349 /* App.swift */; };
-		9AFA79C3288762DC00F5B349 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79C2288762DC00F5B349 /* MetalView.swift */; };
-		9AFA79D0288763B300F5B349 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79CF288763B300F5B349 /* Renderer.swift */; };
-		9AFA79D92887647300F5B349 /* AAPLTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79D82887647300F5B349 /* AAPLTriangle.swift */; };
-		9AFA79F728881B6000F5B349 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79F528881B6000F5B349 /* AAPLShaders.metal */; };
+		9AFA79E728881A2600F5B349 /* BasicTexturingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79E628881A2600F5B349 /* BasicTexturingApp.swift */; };
+		9AFA79E928881A2600F5B349 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79E828881A2600F5B349 /* MetalView.swift */; };
+		9AFA79EB28881A2700F5B349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AFA79EA28881A2700F5B349 /* Assets.xcassets */; };
+		9AFA79FA28881B8D00F5B349 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79F928881B8D00F5B349 /* AAPLShaders.metal */; };
+		9AFA7A0028881BC200F5B349 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79FF28881BC200F5B349 /* Renderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9AFA79BD288762DC00F5B349 /* CPU-GPU-Synchronization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPU-GPU-Synchronization.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AFA79C0288762DC00F5B349 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		9AFA79C2288762DC00F5B349 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		9AFA79C9288762DE00F5B349 /* CPU_GPU_Synchronization.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CPU_GPU_Synchronization.entitlements; sourceTree = "<group>"; };
-		9AFA79CF288763B300F5B349 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
-		9AFA79D1288763DD00F5B349 /* CPU-GPU-Synchronization-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPU-GPU-Synchronization-Bridging-Header.h"; sourceTree = "<group>"; };
-		9AFA79D82887647300F5B349 /* AAPLTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPLTriangle.swift; sourceTree = "<group>"; };
-		9AFA79F528881B6000F5B349 /* AAPLShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
-		9AFA79F628881B6000F5B349 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
+		9AFA79E328881A2600F5B349 /* BasicTexturing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicTexturing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AFA79E628881A2600F5B349 /* BasicTexturingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTexturingApp.swift; sourceTree = "<group>"; };
+		9AFA79E828881A2600F5B349 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		9AFA79EA28881A2700F5B349 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AFA79EF28881A2700F5B349 /* BasicTexturing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasicTexturing.entitlements; sourceTree = "<group>"; };
+		9AFA79F828881B8D00F5B349 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
+		9AFA79F928881B8D00F5B349 /* AAPLShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
+		9AFA79FB28881B9A00F5B349 /* BasicTexturing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BasicTexturing-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AFA79FF28881BC200F5B349 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9AFA79BA288762DC00F5B349 /* Frameworks */ = {
+		9AFA79E028881A2600F5B349 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,74 +37,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9AFA79B4288762DC00F5B349 = {
+		9AFA79DA28881A2600F5B349 = {
 			isa = PBXGroup;
 			children = (
-				9AFA79BF288762DC00F5B349 /* CPU-GPU-Synchronization */,
-				9AFA79BE288762DC00F5B349 /* Products */,
+				9AFA79E528881A2600F5B349 /* BasicTexturing */,
+				9AFA79E428881A2600F5B349 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9AFA79BE288762DC00F5B349 /* Products */ = {
+		9AFA79E428881A2600F5B349 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AFA79BD288762DC00F5B349 /* CPU-GPU-Synchronization.app */,
+				9AFA79E328881A2600F5B349 /* BasicTexturing.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9AFA79BF288762DC00F5B349 /* CPU-GPU-Synchronization */ = {
+		9AFA79E528881A2600F5B349 /* BasicTexturing */ = {
 			isa = PBXGroup;
 			children = (
-				9AFA79F528881B6000F5B349 /* AAPLShaders.metal */,
-				9AFA79F628881B6000F5B349 /* AAPLShaderTypes.h */,
-				9AFA79C0288762DC00F5B349 /* App.swift */,
-				9AFA79C2288762DC00F5B349 /* MetalView.swift */,
-				9AFA79CF288763B300F5B349 /* Renderer.swift */,
-				9AFA79D82887647300F5B349 /* AAPLTriangle.swift */,
-				9AFA79C9288762DE00F5B349 /* CPU_GPU_Synchronization.entitlements */,
-				9AFA79D1288763DD00F5B349 /* CPU-GPU-Synchronization-Bridging-Header.h */,
+				9AFA79F928881B8D00F5B349 /* AAPLShaders.metal */,
+				9AFA79F828881B8D00F5B349 /* AAPLShaderTypes.h */,
+				9AFA79E628881A2600F5B349 /* BasicTexturingApp.swift */,
+				9AFA79E828881A2600F5B349 /* MetalView.swift */,
+				9AFA79FF28881BC200F5B349 /* Renderer.swift */,
+				9AFA79EA28881A2700F5B349 /* Assets.xcassets */,
+				9AFA79EF28881A2700F5B349 /* BasicTexturing.entitlements */,
+				9AFA79FB28881B9A00F5B349 /* BasicTexturing-Bridging-Header.h */,
 			);
-			path = "CPU-GPU-Synchronization";
+			path = BasicTexturing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9AFA79BC288762DC00F5B349 /* CPU-GPU-Synchronization */ = {
+		9AFA79E228881A2600F5B349 /* BasicTexturing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AFA79CC288762DE00F5B349 /* Build configuration list for PBXNativeTarget "CPU-GPU-Synchronization" */;
+			buildConfigurationList = 9AFA79F228881A2700F5B349 /* Build configuration list for PBXNativeTarget "BasicTexturing" */;
 			buildPhases = (
-				9AFA79B9288762DC00F5B349 /* Sources */,
-				9AFA79BA288762DC00F5B349 /* Frameworks */,
-				9AFA79BB288762DC00F5B349 /* Resources */,
+				9AFA79DF28881A2600F5B349 /* Sources */,
+				9AFA79E028881A2600F5B349 /* Frameworks */,
+				9AFA79E128881A2600F5B349 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "CPU-GPU-Synchronization";
-			productName = "CPU-GPU-Synchronization";
-			productReference = 9AFA79BD288762DC00F5B349 /* CPU-GPU-Synchronization.app */;
+			name = BasicTexturing;
+			productName = BasicTexturing;
+			productReference = 9AFA79E328881A2600F5B349 /* BasicTexturing.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9AFA79B5288762DC00F5B349 /* Project object */ = {
+		9AFA79DB28881A2600F5B349 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					9AFA79BC288762DC00F5B349 = {
+					9AFA79E228881A2600F5B349 = {
 						CreatedOnToolsVersion = 14.0;
 						LastSwiftMigration = 1400;
 					};
 				};
 			};
-			buildConfigurationList = 9AFA79B8288762DC00F5B349 /* Build configuration list for PBXProject "CPU-GPU-Synchronization" */;
+			buildConfigurationList = 9AFA79DE28881A2600F5B349 /* Build configuration list for PBXProject "BasicTexturing" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,43 +112,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 9AFA79B4288762DC00F5B349;
-			productRefGroup = 9AFA79BE288762DC00F5B349 /* Products */;
+			mainGroup = 9AFA79DA28881A2600F5B349;
+			productRefGroup = 9AFA79E428881A2600F5B349 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9AFA79BC288762DC00F5B349 /* CPU-GPU-Synchronization */,
+				9AFA79E228881A2600F5B349 /* BasicTexturing */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9AFA79BB288762DC00F5B349 /* Resources */ = {
+		9AFA79E128881A2600F5B349 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AFA79EB28881A2700F5B349 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9AFA79B9288762DC00F5B349 /* Sources */ = {
+		9AFA79DF28881A2600F5B349 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AFA79C3288762DC00F5B349 /* MetalView.swift in Sources */,
-				9AFA79D0288763B300F5B349 /* Renderer.swift in Sources */,
-				9AFA79D92887647300F5B349 /* AAPLTriangle.swift in Sources */,
-				9AFA79F728881B6000F5B349 /* AAPLShaders.metal in Sources */,
-				9AFA79C1288762DC00F5B349 /* App.swift in Sources */,
+				9AFA7A0028881BC200F5B349 /* Renderer.swift in Sources */,
+				9AFA79FA28881B8D00F5B349 /* AAPLShaders.metal in Sources */,
+				9AFA79E928881A2600F5B349 /* MetalView.swift in Sources */,
+				9AFA79E728881A2600F5B349 /* BasicTexturingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9AFA79CA288762DE00F5B349 /* Debug */ = {
+		9AFA79F028881A2700F5B349 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +208,7 @@
 			};
 			name = Debug;
 		};
-		9AFA79CB288762DE00F5B349 /* Release */ = {
+		9AFA79F128881A2700F5B349 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,12 +261,13 @@
 			};
 			name = Release;
 		};
-		9AFA79CD288762DE00F5B349 /* Debug */ = {
+		9AFA79F328881A2700F5B349 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CPU-GPU-Synchronization/CPU_GPU_Synchronization.entitlements";
+				CODE_SIGN_ENTITLEMENTS = BasicTexturing/BasicTexturing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -280,21 +281,22 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jonmhobson.CPU-GPU-Synchronization";
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.BasicTexturing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/CPU-GPU-Synchronization-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BasicTexturing/BasicTexturing-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		9AFA79CE288762DE00F5B349 /* Release */ = {
+		9AFA79F428881A2700F5B349 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CPU-GPU-Synchronization/CPU_GPU_Synchronization.entitlements";
+				CODE_SIGN_ENTITLEMENTS = BasicTexturing/BasicTexturing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -308,10 +310,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jonmhobson.CPU-GPU-Synchronization";
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.BasicTexturing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/CPU-GPU-Synchronization-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BasicTexturing/BasicTexturing-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -319,25 +321,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9AFA79B8288762DC00F5B349 /* Build configuration list for PBXProject "CPU-GPU-Synchronization" */ = {
+		9AFA79DE28881A2600F5B349 /* Build configuration list for PBXProject "BasicTexturing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9AFA79CA288762DE00F5B349 /* Debug */,
-				9AFA79CB288762DE00F5B349 /* Release */,
+				9AFA79F028881A2700F5B349 /* Debug */,
+				9AFA79F128881A2700F5B349 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9AFA79CC288762DE00F5B349 /* Build configuration list for PBXNativeTarget "CPU-GPU-Synchronization" */ = {
+		9AFA79F228881A2700F5B349 /* Build configuration list for PBXNativeTarget "BasicTexturing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9AFA79CD288762DE00F5B349 /* Debug */,
-				9AFA79CE288762DE00F5B349 /* Release */,
+				9AFA79F328881A2700F5B349 /* Debug */,
+				9AFA79F428881A2700F5B349 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9AFA79B5288762DC00F5B349 /* Project object */;
+	rootObject = 9AFA79DB28881A2600F5B349 /* Project object */;
 }
