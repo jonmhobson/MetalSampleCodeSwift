@@ -10,11 +10,6 @@ private enum MovementDirection: Int {
     case down
 }
 
-private struct AAPLObjectMesh {
-    let vertices: [AAPLVertex]
-    let numVerts: UInt32
-}
-
 private let AAPLGridHeight = ((AAPLNumObjects + AAPLGridWidth - 1) / AAPLGridWidth)
 
 final class Renderer: NSObject {
@@ -88,7 +83,7 @@ final class Renderer: NSObject {
             }
         }()
 
-        let tempMeshes: [AAPLObjectMesh] = (0..<AAPLNumObjects).map { _ in
+        let tempMeshes: [[AAPLVertex]] = (0..<AAPLNumObjects).map { _ in
             let numTeeth = Int.random(in: 3...53)
             let innerRatio = Float.random(in: 0.2...0.9)
             let toothWidth = Float.random(in: 0.1...0.5)
@@ -109,7 +104,7 @@ final class Renderer: NSObject {
 
         // Create a single buffer with vertices for all gears
         let bufferSize = MemoryLayout<AAPLVertex>.stride * tempMeshes.reduce(into: 0) { partialResult, object in
-            partialResult += object.vertices.count
+            partialResult += object.count
         }
 
         guard let vbuffer = device.makeBuffer(length: bufferSize) else { fatalError() }
@@ -124,14 +119,14 @@ final class Renderer: NSObject {
         (0..<AAPLNumObjects).forEach { [vertexBuffer] objectIdx in
             let i = Int(objectIdx)
             // Store the mesh metadata in the params buffer
-            params[i].numVertices = tempMeshes[i].numVerts
-            let meshSize = MemoryLayout<AAPLVertex>.stride * Int(tempMeshes[i].numVerts)
+            params[i].numVertices = UInt32(tempMeshes[i].count)
+            let meshSize = MemoryLayout<AAPLVertex>.stride * Int(tempMeshes[i].count)
             params[i].startVertex = UInt32(currentStartVertex)
 
             // Pack the current mesh data in the combined vertex buffer.
             let meshStartAddress = vertexBuffer.contents().advanced(by: currentStartVertex * MemoryLayout<AAPLVertex>.stride)
-            memcpy(meshStartAddress, tempMeshes[i].vertices, meshSize)
-            currentStartVertex += Int(tempMeshes[i].numVerts)
+            memcpy(meshStartAddress, tempMeshes[i], meshSize)
+            currentStartVertex += Int(tempMeshes[i].count)
 
             let gridPos: SIMD2<Float> = [Float(i % Int(AAPLGridWidth)), Float(i / Int(AAPLGridWidth))]
             params[i].position = gridPos * Float(AAPLObjecDistance)
@@ -186,13 +181,14 @@ final class Renderer: NSObject {
         metalView.delegate = self
     }
 
-    private static func makeGearMesh(numTeeth: Int, innerRatio: Float, toothWidth: Float, toothSlope: Float) -> AAPLObjectMesh {
+    private static func makeGearMesh(numTeeth: Int, innerRatio: Float, toothWidth: Float, toothSlope: Float) -> [AAPLVertex] {
         assert(numTeeth >= 3, "Can only build a gear with at least 3 teeth")
         assert(toothWidth + 2 * toothSlope < 1.0, "Configuration of gear invalid")
 
         let angle = 2.0 * Float.pi / Float(numTeeth)
-        let origin: SIMD2<Float> = [0, 0]
-        var meshVertices: [AAPLVertex] = []
+        let origin: SIMD2<Float> = .zero
+        var meshVertices: [AAPLVertex] = Array(repeating: AAPLVertex(position: .zero, texcoord: .zero), count: numTeeth * 12)
+        var vtx = 0
 
         for tooth in 0..<numTeeth {
             let fTooth = Float(tooth)
@@ -203,11 +199,11 @@ final class Renderer: NSObject {
             let toothEndAngle = (fTooth + 2.0 * toothSlope + toothWidth) * angle
             let nextToothAngle = (fTooth + 1.0) * angle
 
-            let groove1: SIMD2<Float> = [ sin(toothStartAngle) * innerRatio, cos(toothStartAngle) * innerRatio]
-            let tip1: SIMD2<Float> = [ sin(toothTip1Angle), cos(toothTip1Angle)]
-            let tip2: SIMD2<Float> = [ sin(toothTip2Angle), cos(toothTip2Angle)]
-            let groove2: SIMD2<Float> = [ sin(toothEndAngle) * innerRatio, cos(toothEndAngle) * innerRatio]
-            let nextGroove: SIMD2<Float> = [ sin(nextToothAngle) * innerRatio, cos(nextToothAngle) * innerRatio]
+            let groove1 = SIMD2<Float>(x: sinf(toothStartAngle) * innerRatio, y: cosf(toothStartAngle) * innerRatio)
+            let tip1 = SIMD2<Float>(x: sinf(toothTip1Angle), y: cosf(toothTip1Angle))
+            let tip2 = SIMD2<Float>(x: sinf(toothTip2Angle), y: cosf(toothTip2Angle))
+            let groove2 = SIMD2<Float>(x: sinf(toothEndAngle) * innerRatio, y: cosf(toothEndAngle) * innerRatio)
+            let nextGroove = SIMD2<Float>(x: sinf(nextToothAngle) * innerRatio, y: cosf(nextToothAngle) * innerRatio)
 
             let verts = [
                 groove1, tip1, tip2,        // Right top triangle of tooth
@@ -217,11 +213,12 @@ final class Renderer: NSObject {
             ]
 
             verts.forEach { vertex in
-                meshVertices.append(AAPLVertex(position: vertex, texcoord: (vertex + 1.0) * 0.5))
+                meshVertices[vtx] = AAPLVertex(position: vertex, texcoord: (vertex + 1.0) * 0.5)
+                vtx += 1
             }
         }
 
-        return AAPLObjectMesh(vertices: meshVertices, numVerts: UInt32(meshVertices.count))
+        return meshVertices
     }
 
     private let rightBounds: Float  =  Float(AAPLObjecDistance) * Float(AAPLGridWidth) * 0.5
