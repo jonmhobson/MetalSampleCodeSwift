@@ -20,5 +20,6 @@ In the first pass only the macOS targets will be ported as the other targets add
 | Customizing Render Pass Setup | [link](https://developer.apple.com/documentation/metal/render_passes/customizing_render_pass_setup) |
 | Encoding Indirect Command Buffers on the CPU | [link](https://developer.apple.com/documentation/metal/indirect_command_encoding/encoding_indirect_command_buffers_on_the_cpu) |
 | Encoding Indirect Command Buffers on the GPU | [link](https://developer.apple.com/documentation/metal/indirect_command_encoding/encoding_indirect_command_buffers_on_the_gpu) |
+| Managing groups of resources with argument buffers | [link](https://developer.apple.com/documentation/metal/buffers/managing_groups_of_resources_with_argument_buffers) |
 | Adjusting the level of detail using Metal mesh shaders  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/adjusting_the_level_of_detail_using_metal_mesh_shaders)  |
 | Accelerating ray tracing using Metal  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/accelerating_ray_tracing_using_metal)  |
