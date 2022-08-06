@@ -16,6 +16,7 @@ In the first pass only the macOS targets will be ported as the other targets add
 | Using a Render Pipeline to Render Primitives | [link](https://developer.apple.com/documentation/metal/using_a_render_pipeline_to_render_primitives) |
 | Synchronizing CPU and GPU Work | [link](https://developer.apple.com/documentation/metal/resource_synchronization/synchronizing_cpu_and_gpu_work) |
 | Creating and Sampling Textures | [link](https://developer.apple.com/documentation/metal/textures/creating_and_sampling_textures) |
+| Processing a Texture in a Compute Function | [link](https://developer.apple.com/documentation/metal/compute_passes/processing_a_texture_in_a_compute_function) |
 | Calculating Primitive Visibility Using Depth Testing | [link](https://developer.apple.com/documentation/metal/render_passes/calculating_primitive_visibility_using_depth_testing) |
 | Customizing Render Pass Setup | [link](https://developer.apple.com/documentation/metal/render_passes/customizing_render_pass_setup) |
 | Encoding Indirect Command Buffers on the CPU | [link](https://developer.apple.com/documentation/metal/indirect_command_encoding/encoding_indirect_command_buffers_on_the_cpu) |
