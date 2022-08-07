@@ -25,3 +25,4 @@ In the first pass only the macOS targets will be ported as the other targets add
 | Adjusting the level of detail using Metal mesh shaders  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/adjusting_the_level_of_detail_using_metal_mesh_shaders)  |
 | Accelerating ray tracing using Metal  | [link](https://developer.apple.com/documentation/metal/metal_sample_code_library/accelerating_ray_tracing_using_metal)  |
 | Implementing a Multistage Image Filter Using Heaps and Events | [link](https://developer.apple.com/documentation/metal/memory_heaps/implementing_a_multistage_image_filter_using_heaps_and_events) |
+| Implementing a Multistage Image Filter Using Heaps and Fences | [link](https://developer.apple.com/documentation/metal/memory_heaps/implementing_a_multistage_image_filter_using_heaps_and_fences) |
