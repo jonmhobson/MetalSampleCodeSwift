@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A057862289EC3D00038BC9C /* FilterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A057861289EC3D00038BC9C /* FilterApp.swift */; };
+		9A057864289EC3D00038BC9C /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A057863289EC3D00038BC9C /* MetalView.swift */; };
+		9A057866289EC3D10038BC9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A057865289EC3D10038BC9C /* Assets.xcassets */; };
+		9A0D8CC4289EC4EA000D1727 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D8CC3289EC4EA000D1727 /* Shaders.metal */; };
+		9A0D8CC6289EC4FC000D1727 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D8CC5289EC4FC000D1727 /* Renderer.swift */; };
+		9A0D8CCD289EF2A2000D1727 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D8CCC289EF2A2000D1727 /* Filter.swift */; };
+		9A0D8CCF289EF440000D1727 /* EventWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D8CCE289EF440000D1727 /* EventWrapper.swift */; };
+		9A0D8CD1289F0102000D1727 /* Filters.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D8CD0289F0102000D1727 /* Filters.metal */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A05785E289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFilteringWithHeapsAndEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A057861289EC3D00038BC9C /* FilterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterApp.swift; sourceTree = "<group>"; };
+		9A057863289EC3D00038BC9C /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		9A057865289EC3D10038BC9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A05786A289EC3D10038BC9C /* ImageFilteringWithHeapsAndEvents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageFilteringWithHeapsAndEvents.entitlements; sourceTree = "<group>"; };
+		9A0D8CC3289EC4EA000D1727 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		9A0D8CC5289EC4FC000D1727 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		9A0D8CC7289EC50C000D1727 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		9A0D8CC8289EC51F000D1727 /* ImageFilteringWithHeapsAndEvents-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageFilteringWithHeapsAndEvents-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A0D8CCC289EF2A2000D1727 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		9A0D8CCE289EF440000D1727 /* EventWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWrapper.swift; sourceTree = "<group>"; };
+		9A0D8CD0289F0102000D1727 /* Filters.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Filters.metal; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A05785B289EC3D00038BC9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A057855289EC3D00038BC9C = {
+			isa = PBXGroup;
+			children = (
+				9A057860289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents */,
+				9A05785F289EC3D00038BC9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A05785F289EC3D00038BC9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A05785E289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A057860289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents */ = {
+			isa = PBXGroup;
+			children = (
+				9A057861289EC3D00038BC9C /* FilterApp.swift */,
+				9A057863289EC3D00038BC9C /* MetalView.swift */,
+				9A0D8CC5289EC4FC000D1727 /* Renderer.swift */,
+				9A0D8CCC289EF2A2000D1727 /* Filter.swift */,
+				9A0D8CCE289EF440000D1727 /* EventWrapper.swift */,
+				9A0D8CC7289EC50C000D1727 /* ShaderTypes.h */,
+				9A0D8CC3289EC4EA000D1727 /* Shaders.metal */,
+				9A0D8CD0289F0102000D1727 /* Filters.metal */,
+				9A057865289EC3D10038BC9C /* Assets.xcassets */,
+				9A05786A289EC3D10038BC9C /* ImageFilteringWithHeapsAndEvents.entitlements */,
+				9A0D8CC8289EC51F000D1727 /* ImageFilteringWithHeapsAndEvents-Bridging-Header.h */,
+			);
+			path = ImageFilteringWithHeapsAndEvents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A05785D289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A05786D289EC3D10038BC9C /* Build configuration list for PBXNativeTarget "ImageFilteringWithHeapsAndEvents" */;
+			buildPhases = (
+				9A05785A289EC3D00038BC9C /* Sources */,
+				9A05785B289EC3D00038BC9C /* Frameworks */,
+				9A05785C289EC3D00038BC9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageFilteringWithHeapsAndEvents;
+			productName = ImageFilteringWithHeapsAndEvents;
+			productReference = 9A05785E289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A057856289EC3D00038BC9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					9A05785D289EC3D00038BC9C = {
+						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1400;
+					};
+				};
+			};
+			buildConfigurationList = 9A057859289EC3D00038BC9C /* Build configuration list for PBXProject "ImageFilteringWithHeapsAndEvents" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A057855289EC3D00038BC9C;
+			productRefGroup = 9A05785F289EC3D00038BC9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A05785D289EC3D00038BC9C /* ImageFilteringWithHeapsAndEvents */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A05785C289EC3D00038BC9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A057866289EC3D10038BC9C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A05785A289EC3D00038BC9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A0D8CC6289EC4FC000D1727 /* Renderer.swift in Sources */,
+				9A0D8CCD289EF2A2000D1727 /* Filter.swift in Sources */,
+				9A0D8CD1289F0102000D1727 /* Filters.metal in Sources */,
+				9A0D8CC4289EC4EA000D1727 /* Shaders.metal in Sources */,
+				9A057864289EC3D00038BC9C /* MetalView.swift in Sources */,
+				9A0D8CCF289EF440000D1727 /* EventWrapper.swift in Sources */,
+				9A057862289EC3D00038BC9C /* FilterApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9A05786B289EC3D10038BC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9A05786C289EC3D10038BC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9A05786E289EC3D10038BC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageFilteringWithHeapsAndEvents/ImageFilteringWithHeapsAndEvents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.ImageFilteringWithHeapsAndEvents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ImageFilteringWithHeapsAndEvents/ImageFilteringWithHeapsAndEvents-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9A05786F289EC3D10038BC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageFilteringWithHeapsAndEvents/ImageFilteringWithHeapsAndEvents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.ImageFilteringWithHeapsAndEvents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ImageFilteringWithHeapsAndEvents/ImageFilteringWithHeapsAndEvents-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A057859289EC3D00038BC9C /* Build configuration list for PBXProject "ImageFilteringWithHeapsAndEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A05786B289EC3D10038BC9C /* Debug */,
+				9A05786C289EC3D10038BC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A05786D289EC3D10038BC9C /* Build configuration list for PBXNativeTarget "ImageFilteringWithHeapsAndEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A05786E289EC3D10038BC9C /* Debug */,
+				9A05786F289EC3D10038BC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A057856289EC3D00038BC9C /* Project object */;
+}
