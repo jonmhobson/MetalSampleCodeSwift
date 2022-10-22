@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9AEAD79F28E0CAEF00C3F306 /* HybridRenderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD79E28E0CAEF00C3F306 /* HybridRenderingApp.swift */; };
+		9AEAD7A128E0CAEF00C3F306 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7A028E0CAEF00C3F306 /* MetalView.swift */; };
+		9AEAD7A328E0CAF100C3F306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAD7A228E0CAF100C3F306 /* Assets.xcassets */; };
+		9AEAD7A628E0CAF100C3F306 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAD7A528E0CAF100C3F306 /* Preview Assets.xcassets */; };
+		9AEAD7AE28E0CBCD00C3F306 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7AD28E0CBCD00C3F306 /* Renderer.swift */; };
+		9AEAD7B328E0CC0700C3F306 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7B228E0CC0700C3F306 /* Shaders.metal */; };
+		9AEAD7B928E0D44800C3F306 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7B828E0D44800C3F306 /* MathUtils.swift */; };
+		9AEAD7BF28E1902900C3F306 /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAD7BB28E1902900C3F306 /* kloppenheim_06_4k.hdr */; };
+		9AEAD7C928E1909200C3F306 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAD7C828E1909200C3F306 /* Models */; };
+		9AEAD7CB28E1918800C3F306 /* MeshObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7CA28E1918800C3F306 /* MeshObj.swift */; };
+		9AEAD7CD28E1943000C3F306 /* MTLTexture+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAD7CC28E1943000C3F306 /* MTLTexture+Ext.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9AEAD79B28E0CAEF00C3F306 /* HybridRendering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridRendering.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEAD79E28E0CAEF00C3F306 /* HybridRenderingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridRenderingApp.swift; sourceTree = "<group>"; };
+		9AEAD7A028E0CAEF00C3F306 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		9AEAD7A228E0CAF100C3F306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AEAD7A528E0CAF100C3F306 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9AEAD7A728E0CAF100C3F306 /* HybridRendering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HybridRendering.entitlements; sourceTree = "<group>"; };
+		9AEAD7AD28E0CBCD00C3F306 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		9AEAD7B128E0CC0000C3F306 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		9AEAD7B228E0CC0700C3F306 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		9AEAD7B428E0CC1300C3F306 /* HybridRendering-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HybridRendering-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AEAD7B828E0D44800C3F306 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		9AEAD7BA28E0E60A00C3F306 /* ArgumentBufferTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArgumentBufferTypes.h; sourceTree = "<group>"; };
+		9AEAD7BB28E1902900C3F306 /* kloppenheim_06_4k.hdr */ = {isa = PBXFileReference; lastKnownFileType = file; path = kloppenheim_06_4k.hdr; sourceTree = "<group>"; };
+		9AEAD7C828E1909200C3F306 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
+		9AEAD7CA28E1918800C3F306 /* MeshObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshObj.swift; sourceTree = "<group>"; };
+		9AEAD7CC28E1943000C3F306 /* MTLTexture+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MTLTexture+Ext.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9AEAD79828E0CAEF00C3F306 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9AEAD79228E0CAEF00C3F306 = {
+			isa = PBXGroup;
+			children = (
+				9AEAD79D28E0CAEF00C3F306 /* HybridRendering */,
+				9AEAD79C28E0CAEF00C3F306 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9AEAD79C28E0CAEF00C3F306 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AEAD79B28E0CAEF00C3F306 /* HybridRendering.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9AEAD79D28E0CAEF00C3F306 /* HybridRendering */ = {
+			isa = PBXGroup;
+			children = (
+				9AEAD7C828E1909200C3F306 /* Models */,
+				9AEAD7BB28E1902900C3F306 /* kloppenheim_06_4k.hdr */,
+				9AEAD79E28E0CAEF00C3F306 /* HybridRenderingApp.swift */,
+				9AEAD7A028E0CAEF00C3F306 /* MetalView.swift */,
+				9AEAD7AD28E0CBCD00C3F306 /* Renderer.swift */,
+				9AEAD7CC28E1943000C3F306 /* MTLTexture+Ext.swift */,
+				9AEAD7CA28E1918800C3F306 /* MeshObj.swift */,
+				9AEAD7B828E0D44800C3F306 /* MathUtils.swift */,
+				9AEAD7B128E0CC0000C3F306 /* ShaderTypes.h */,
+				9AEAD7BA28E0E60A00C3F306 /* ArgumentBufferTypes.h */,
+				9AEAD7B228E0CC0700C3F306 /* Shaders.metal */,
+				9AEAD7A228E0CAF100C3F306 /* Assets.xcassets */,
+				9AEAD7A728E0CAF100C3F306 /* HybridRendering.entitlements */,
+				9AEAD7A428E0CAF100C3F306 /* Preview Content */,
+				9AEAD7B428E0CC1300C3F306 /* HybridRendering-Bridging-Header.h */,
+			);
+			path = HybridRendering;
+			sourceTree = "<group>";
+		};
+		9AEAD7A428E0CAF100C3F306 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9AEAD7A528E0CAF100C3F306 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9AEAD79A28E0CAEF00C3F306 /* HybridRendering */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AEAD7AA28E0CAF100C3F306 /* Build configuration list for PBXNativeTarget "HybridRendering" */;
+			buildPhases = (
+				9AEAD79728E0CAEF00C3F306 /* Sources */,
+				9AEAD79828E0CAEF00C3F306 /* Frameworks */,
+				9AEAD79928E0CAEF00C3F306 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HybridRendering;
+			productName = HybridRendering;
+			productReference = 9AEAD79B28E0CAEF00C3F306 /* HybridRendering.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9AEAD79328E0CAEF00C3F306 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					9AEAD79A28E0CAEF00C3F306 = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+					};
+				};
+			};
+			buildConfigurationList = 9AEAD79628E0CAEF00C3F306 /* Build configuration list for PBXProject "HybridRendering" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9AEAD79228E0CAEF00C3F306;
+			productRefGroup = 9AEAD79C28E0CAEF00C3F306 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AEAD79A28E0CAEF00C3F306 /* HybridRendering */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AEAD79928E0CAEF00C3F306 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEAD7A628E0CAF100C3F306 /* Preview Assets.xcassets in Resources */,
+				9AEAD7A328E0CAF100C3F306 /* Assets.xcassets in Resources */,
+				9AEAD7C928E1909200C3F306 /* Models in Resources */,
+				9AEAD7BF28E1902900C3F306 /* kloppenheim_06_4k.hdr in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9AEAD79728E0CAEF00C3F306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEAD7A128E0CAEF00C3F306 /* MetalView.swift in Sources */,
+				9AEAD7AE28E0CBCD00C3F306 /* Renderer.swift in Sources */,
+				9AEAD7CD28E1943000C3F306 /* MTLTexture+Ext.swift in Sources */,
+				9AEAD7CB28E1918800C3F306 /* MeshObj.swift in Sources */,
+				9AEAD79F28E0CAEF00C3F306 /* HybridRenderingApp.swift in Sources */,
+				9AEAD7B328E0CC0700C3F306 /* Shaders.metal in Sources */,
+				9AEAD7B928E0D44800C3F306 /* MathUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9AEAD7A828E0CAF100C3F306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9AEAD7A928E0CAF100C3F306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = NO;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9AEAD7AB28E0CAF100C3F306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HybridRendering/HybridRendering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HybridRendering/Preview Content\"";
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.HybridRendering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HybridRendering/HybridRendering-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9AEAD7AC28E0CAF100C3F306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HybridRendering/HybridRendering.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HybridRendering/Preview Content\"";
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.HybridRendering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HybridRendering/HybridRendering-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AEAD79628E0CAEF00C3F306 /* Build configuration list for PBXProject "HybridRendering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEAD7A828E0CAF100C3F306 /* Debug */,
+				9AEAD7A928E0CAF100C3F306 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AEAD7AA28E0CAF100C3F306 /* Build configuration list for PBXNativeTarget "HybridRendering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AEAD7AB28E0CAF100C3F306 /* Debug */,
+				9AEAD7AC28E0CAF100C3F306 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9AEAD79328E0CAEF00C3F306 /* Project object */;
+}
