@@ -518,19 +518,10 @@ final class Renderer: NSObject {
                 pSubmesh[j].shortIndexType = submesh.metalKitSubmesh.indexType == .uint32 ? 0 : 1
                 pSubmesh[j].indices = indexBuffer.buffer.gpuAddress + UInt64(indexBuffer.offset)
 
-                for m in 0..<submesh.textures.count {
-                    switch m {
-                    case 0:
-                        pSubmesh[j].materials.0 = submesh.textures[m].gpuResourceID
-                    case 1:
-                        pSubmesh[j].materials.1 = submesh.textures[m].gpuResourceID
-                    case 2:
-                        pSubmesh[j].materials.2 = submesh.textures[m].gpuResourceID
-                    case 3:
-                        pSubmesh[j].materials.3 = submesh.textures[m].gpuResourceID
-                    case 4:
-                        pSubmesh[j].materials.4 = submesh.textures[m].gpuResourceID
-                    default: fatalError()
+                // Use a pointer to loop through the swift tuples.
+                withUnsafeMutablePointer(to: &pSubmesh[j].materials.0) { matPtr in
+                    for m in 0..<submesh.textures.count {
+                        matPtr[m] = submesh.textures[m].gpuResourceID
                     }
                 }
 

@@ -15,14 +15,6 @@ typedef enum FragmentBufferIndex {
     FragmentBufferIndexArguments = 0
 } FragmentBufferIndex;
 
-// Argument buffer indices shared between shader and C code to ensure Metal shader buffer
-// input matches Metal API texture set calls
-typedef enum ArgumentBufferID {
-    ArgumentBufferIDExampleTextures     = 0,
-    ArgumentBufferIDExampleBuffers      = 100,
-    ArgumentBufferIDExampleConstants    = 200
-} ArgumentBufferID;
-
 // Constant values shared between shader and C code which idicate the size of argument arrays
 // in the structure defining the argument buffers
 typedef enum NumArguments {
@@ -36,5 +28,23 @@ typedef struct Vertex {
     vector_float2 position;
     vector_float2 texCoord;
 } Vertex;
+
+#ifndef __METAL_VERSION__
+
+#include <Metal/Metal.h>
+
+typedef struct FragmentShaderArguments {
+    MTLResourceID   exampleTextures[NumTextureArguments];
+    uint64_t        exampleBuffers[NumBufferArguments];
+    uint32_t        exampleConstants[NumBufferArguments];
+} FragmentShaderArguments;
+
+#else
+struct FragmentShaderArguments {
+    array<texture2d<float>, NumTextureArguments>    exampleTextures;
+    array<device float *, NumBufferArguments>       exampleBuffers;
+    array<uint32_t, NumBufferArguments>             exampleConstants;
+};
+#endif
 
 #endif /* ShaderTypes_h */

@@ -27,7 +27,7 @@ final class Renderer: NSObject {
     static func loadTextures(device: MTLDevice) -> [MTLTexture] {
         let textureLoader = MTKTextureLoader(device: device)
 
-        let textures: [MTLTexture] = (0..<Int(NumTextureArguments.rawValue)).map {
+        return (0..<Int(NumTextureArguments.rawValue)).map {
             let textureName = "Texture\($0)"
             do {
                 let texture = try textureLoader.newTexture(name: textureName, scaleFactor: 1.0, bundle: nil)
@@ -37,12 +37,10 @@ final class Renderer: NSObject {
                 fatalError(error.localizedDescription)
             }
         }
-
-        return textures
     }
 
     static func createBuffers(device: MTLDevice) -> [MTLBuffer] {
-        let buffers: [MTLBuffer] = (0..<Int(NumBufferArguments.rawValue)).map { (i: Int) -> MTLBuffer in
+        return (0..<Int(NumBufferArguments.rawValue)).map { (i: Int) -> MTLBuffer in
             let elementCount = Int.random(in: 128..<384)
 
             guard let buffer = device.makeBuffer(length: MemoryLayout<Float>.stride * elementCount, options: .storageModeShared) else {
@@ -60,8 +58,6 @@ final class Renderer: NSObject {
 
             return buffer
         }
-
-        return buffers
     }
 
     static func descriptorFromTexture(texture: MTLTexture, storageMode: MTLStorageMode) -> MTLTextureDescriptor {
@@ -238,26 +234,34 @@ final class Renderer: NSObject {
             }
         }()
 
-        let argumentEncoder = fragmentFunction.makeArgumentEncoder(bufferIndex: Int(FragmentBufferIndexArguments.rawValue))
-        let argumentBufferLength = argumentEncoder.encodedLength
+        assert(device.argumentBuffersSupport != .tier1) // We're using Metal 3 argument buffers
 
-        guard let argumentBuffer = device.makeBuffer(length: argumentBufferLength) else { fatalError() }
+        let argumentBufferLength = MemoryLayout<FragmentShaderArguments>.stride
 
-        self.fragmentShaderArgumentBuffer = argumentBuffer
-        self.fragmentShaderArgumentBuffer.label = "Argument Buffer Fragment Shader"
+        guard let fragmentShaderArgumentBuffer = device.makeBuffer(length: argumentBufferLength) else {
+            fatalError("Failed to create argument buffer")
+        }
+        self.fragmentShaderArgumentBuffer = fragmentShaderArgumentBuffer
 
-        argumentEncoder.setArgumentBuffer(fragmentShaderArgumentBuffer, offset: 0)
+        let argStruct = fragmentShaderArgumentBuffer.contents().bindMemory(to: FragmentShaderArguments.self, capacity: 1)
 
-        for (i, texture) in textures.enumerated() {
-            argumentEncoder.setTexture(texture, index: Int(ArgumentBufferIDExampleTextures.rawValue) + i)
+        // Swift doesn't allow us to iterate through tuples, but we can use an unsafe pointer instead.
+        withUnsafeMutablePointer(to: &argStruct.pointee.exampleTextures.0) { texIds in
+            for (i, texture) in textures.enumerated() {
+                texIds[i] = texture.gpuResourceID
+            }
         }
 
-        for (i, buffer) in dataBuffers.enumerated() {
-            argumentEncoder.setBuffer(buffer, offset: 0, index: Int(ArgumentBufferIDExampleBuffers.rawValue) + i)
+        withUnsafeMutablePointer(to: &argStruct.pointee.exampleBuffers.0) { bufPtr in
+            for (i, buffer) in dataBuffers.enumerated() {
+                bufPtr[i] = buffer.gpuAddress
+            }
+        }
 
-            let elementCountAddress = argumentEncoder.constantData(at: Int(ArgumentBufferIDExampleConstants.rawValue) + i)
-            let pointer = elementCountAddress.bindMemory(to: UInt32.self, capacity: 1)
-            pointer.pointee = UInt32(buffer.length / 4)
+        withUnsafeMutablePointer(to: &argStruct.pointee.exampleConstants.0) { constPtr in
+            for (i, buffer) in dataBuffers.enumerated() {
+                constPtr[i] = UInt32(buffer.length / MemoryLayout<Float>.stride)
+            }
         }
 
         super.init()

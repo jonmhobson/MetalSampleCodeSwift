@@ -24,12 +24,6 @@ vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
     return out;
 }
 
-struct FragmentShaderArguments {
-    array<texture2d<float>, NumTextureArguments>    exampleTextures     [[ id(ArgumentBufferIDExampleTextures) ]];
-    array<device float *, NumBufferArguments>       exampleBuffers      [[ id(ArgumentBufferIDExampleBuffers) ]];
-    array<uint32_t, NumBufferArguments>             exampleConstants    [[ id(ArgumentBufferIDExampleConstants) ]];
-};
-
 fragment float4 fragmentShader(RasterizerData in [[stage_in]],
                                device FragmentShaderArguments &fragmentShaderArgs [[ buffer(FragmentBufferIndexArguments) ]]) {
     constexpr sampler textureSampler (mag_filter::linear,
