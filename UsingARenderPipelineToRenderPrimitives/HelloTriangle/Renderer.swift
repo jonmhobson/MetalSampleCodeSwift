@@ -6,7 +6,7 @@ final class Renderer: NSObject {
     private let commandQueue: MTLCommandQueue
     private let pipelineState: MTLRenderPipelineState
 
-    var viewportSize: simd_uint2 = [0, 0]
+    var viewportSize: vector_uint2 = [0, 0]
 
     init(metalView: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),

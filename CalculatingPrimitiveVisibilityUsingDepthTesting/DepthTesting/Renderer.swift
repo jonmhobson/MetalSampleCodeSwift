@@ -100,8 +100,6 @@ extension Renderer: MTKViewDelegate {
                                      length: MemoryLayout<AAPLVertex>.stride * quadVertices.count,
                                      index: 0)
 
-
-
         renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)
 
         let triangleVertices: [AAPLVertex] = [

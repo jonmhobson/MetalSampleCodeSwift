@@ -78,7 +78,7 @@ final class Renderer: NSObject {
     private var cameraAngle: Float = 0.0
     private var cameraPanSpeedFactor: Float = 0.5
     private var metallicBias: Float = 0.0
-    private var roughnessBias: Float = 0.0
+    private var roughnessBias: Float = 0.2
     private var exposure: Float = 1.0
 
     private var rawColorMap: MTLTexture!

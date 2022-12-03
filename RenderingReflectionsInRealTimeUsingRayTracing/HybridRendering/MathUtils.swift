@@ -1,4 +1,6 @@
 import Foundation
+import simd
+import Metal
 
 extension simd_float4x4 {
     init(_ m00: Float, _ m10: Float, _ m20: Float, _ m30: Float,

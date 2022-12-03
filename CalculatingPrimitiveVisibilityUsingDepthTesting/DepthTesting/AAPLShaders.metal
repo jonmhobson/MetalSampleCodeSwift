@@ -21,7 +21,7 @@ struct RasterizerData
 /// Vertex shader.
 vertex RasterizerData
 vertexShader(uint                      vertexID     [[ vertex_id ]],
-             const device AAPLVertex * vertices     [[ buffer(AAPLVertexInputIndexVertices) ]],
+             constant AAPLVertex     * vertices     [[ buffer(AAPLVertexInputIndexVertices) ]],
              constant vector_uint2   & viewportSize [[ buffer(AAPLVertexInputIndexViewport) ]])
 {
     RasterizerData out;

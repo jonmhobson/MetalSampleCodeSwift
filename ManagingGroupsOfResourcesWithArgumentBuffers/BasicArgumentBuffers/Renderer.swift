@@ -4,7 +4,7 @@ import MetalKit
 struct FragmentShaderArguments {
     var exampleTexture: MTLResourceID
     var exampleSampler: MTLResourceID
-    var exampleBuffer: UnsafeRawPointer
+    var exampleBuffer: UInt64
     var exampleConstant: UInt32
 }
 
@@ -42,8 +42,11 @@ final class Renderer: NSObject {
             AAPLVertex(position: [ 0.75,  0.75], texCoord: [1.0, 1.0], color: [1, 1, 1, 1])
         ]
 
-        guard let vertexBuffer = device.makeBuffer(bytes: vertexData, length: vertexData.count * MemoryLayout<AAPLVertex>.stride, options: [.storageModeShared]) else { fatalError() }
-
+        guard let vertexBuffer = device.makeBuffer(
+            bytes: vertexData,
+            length: vertexData.count * MemoryLayout<AAPLVertex>.stride,
+            options: [.storageModeShared]
+        ) else { fatalError() }
         self.vertexBuffer = vertexBuffer
         self.vertexBuffer.label = "Vertices"
 
@@ -117,7 +120,7 @@ final class Renderer: NSObject {
 
         let argumentStructure = fragmentShaderArgumentBuffer.contents().bindMemory(to: FragmentShaderArguments.self, capacity: 1)
         argumentStructure.pointee.exampleTexture = texture.gpuResourceID
-        argumentStructure.pointee.exampleBuffer = UnsafeRawPointer(bitPattern: UInt(indirectBuffer.gpuAddress))!
+        argumentStructure.pointee.exampleBuffer = indirectBuffer.gpuAddress
         argumentStructure.pointee.exampleSampler = sampler.gpuResourceID
         argumentStructure.pointee.exampleConstant = UInt32(bufferElements)
 

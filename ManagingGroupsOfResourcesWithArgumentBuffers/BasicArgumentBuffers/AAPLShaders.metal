@@ -29,7 +29,7 @@ vertexShader(uint vertexID [[ vertex_id ]],
 
 fragment float4
 fragmentShader(RasterizerData in [[ stage_in ]],
-               device FragmentShaderArguments &fragmentShaderArgs [[ buffer(AAPLFragmentBufferIndexArguments) ]]) {
+               const device FragmentShaderArguments &fragmentShaderArgs [[ buffer(AAPLFragmentBufferIndexArguments) ]]) {
     // Get the encoded sampler from the argument buffer.
     sampler exampleSampler = fragmentShaderArgs.exampleSampler;
 

@@ -1,15 +1,9 @@
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
-}
-
 @main
 struct HelloTriangleApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
     var body: some Scene {
-        WindowGroup {
+        Window("Hello Triangle", id: "hello-triangle"){
             MetalView()
         }
     }

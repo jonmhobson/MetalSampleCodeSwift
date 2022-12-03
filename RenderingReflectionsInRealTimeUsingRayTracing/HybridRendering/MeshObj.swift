@@ -169,20 +169,17 @@ struct MeshObj {
 
         let textureLoader = MTKTextureLoader(device: device)
 
-        var submeshes: [SubmeshObj] = []
-
-        for i in 0..<metalKitMesh.submeshes.count {
-            if let submesh = modelIOMesh.submeshes?[i] as? MDLSubmesh {
+        self.submeshes =
+            zip(modelIOMesh.submeshes!, metalKitMesh.submeshes)
+            .compactMap { modelIOSubmesh, metalKitSubmesh in
+                guard let submesh = modelIOSubmesh as? MDLSubmesh else { return nil }
                 submesh.material = material
-                let submesh = SubmeshObj(modelIOSubmesh: submesh,
-                                         metalKitSubmesh: metalKitMesh.submeshes[i],
-                                         textureLoader: textureLoader)
-
-                submeshes.append(submesh)
+                return SubmeshObj(
+                    modelIOSubmesh: submesh,
+                    metalKitSubmesh: metalKitSubmesh,
+                    textureLoader: textureLoader
+                )
             }
-        }
-
-        self.submeshes = submeshes
     }
 
     static func newMeshes(from object: MDLObject, vertexDescriptor: MDLVertexDescriptor,
@@ -314,8 +311,9 @@ struct MeshObj {
         let kFloorRepeat: Float = 20.0
         let texcoords = modelIOMesh.vertexAttributeData(forAttributeNamed: MDLVertexAttributeTextureCoordinate)!
         let map = texcoords.map
-        let uv = map.bytes.bindMemory(to: SIMD2<Float>.self, capacity: 1)
-        for i in 0..<(texcoords.bufferSize / MemoryLayout<SIMD2<Float>>.stride) {
+        let numUvs = texcoords.bufferSize / MemoryLayout<SIMD2<Float>>.stride
+        let uv = map.bytes.bindMemory(to: SIMD2<Float>.self, capacity: numUvs)
+        for i in 0..<numUvs {
             uv[i].x *= kFloorRepeat
             uv[i].y *= kFloorRepeat
         }

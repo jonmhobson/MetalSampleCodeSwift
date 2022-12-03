@@ -1,6 +1,7 @@
 import Foundation
 import CoreGraphics
 import ImageIO
+import Metal
 
 private func createCGImageFromFile(path: String) -> CGImage? {
     let url = URL(filePath: path)
