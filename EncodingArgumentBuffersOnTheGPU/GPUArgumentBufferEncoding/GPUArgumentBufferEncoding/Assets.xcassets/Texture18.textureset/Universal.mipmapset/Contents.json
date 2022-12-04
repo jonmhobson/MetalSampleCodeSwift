@@ -1,0 +1,12 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "levels" : [
+    {
+      "filename" : "19Lamp.png",
+      "mipmap-level" : "base"
+    }
+  ]
+}
