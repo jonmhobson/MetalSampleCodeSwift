@@ -14,13 +14,13 @@ struct InstanceArguments {
 // The source_textures parameter of the updateInstances kernel
 // is an unbounded array of these structures.
 struct SourceTextureArguments {
-    texture2d<float>    texture [[ id(ArgumentBufferIDTexture) ]];
+    texture2d<float>    texture;
 };
 
 // Every quad is an instance.
 kernel void updateInstances(uint instanceID [[ thread_position_in_grid ]],
                             constant FrameState &frame_state [[ buffer(ComputeBufferIndexFrameState) ]],
-                            constant SourceTextureArguments *source_textures [[ buffer(ComputeBufferIndexSourceTextures) ]],
+                            const device SourceTextureArguments *source_textures [[ buffer(ComputeBufferIndexSourceTextures) ]],
                             device InstanceArguments *instance_params [[ buffer(ComputeBufferIndexInstanceParams) ]]) {
     // instanceID - The ID of the quad the kernel is currently updating.
     // frame_state - Info to calculate the position of the current quad.

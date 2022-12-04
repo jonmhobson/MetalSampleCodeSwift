@@ -8,7 +8,6 @@
 #define GridWidth       11
 #define NumInstances    66
 #define NumTextures     67
-#define GridHeight      ((NumInstances+1) / GridWidth)
 
 // The buffer index values that the shader and C code share to ensure Metal
 //   vertex shader buffer inputs match Metal API set calls.
@@ -32,15 +31,11 @@ typedef enum ComputeBufferIndex {
     ComputeBufferIndexFrameState
 } ComputeBufferIndex;
 
-typedef enum ArgumentBufferID {
-    ArgumentBufferIDTexture = 0
-} ArgumentBufferID;
-
 //  Defines the layout of each vertex in the array of vertices that functions
 //     as an input to the Metal vertex shader.
 typedef struct Vertex {
-    vector_float2 position;
-    vector_float2 texCoord;
+    vector_float2   position;
+    vector_float2   texCoord;
 } Vertex;
 
 typedef struct FrameState {

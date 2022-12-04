@@ -3,6 +3,12 @@ import MetalKit
 
 private let maxBuffersInFlight = 3
 
+struct InstanceArguments {
+    let position: vector_float2
+    let leftTexture: MTLResourceID
+    let rightTexture: MTLResourceID
+}
+
 final class Renderer: NSObject {
     private let inFlightSemaphore = DispatchSemaphore(value: maxBuffersInFlight)
     private let device: MTLDevice
@@ -188,48 +194,34 @@ final class Renderer: NSObject {
         threadgroupCount = MTLSize(width: 1, height: 1, depth: 1)
         threadgroupCount.width = max((2 * Int(NumInstances) - 1) / threadgroupSize.width, 1)
 
-        // Create and encode argument buffers
-
-        let argumentEncoder = computeFunction.makeArgumentEncoder(bufferIndex: Int(ComputeBufferIndexSourceTextures.rawValue))
-
-        // Determine the size of a texture argument in a buffer
-        let textureArgumentSize = argumentEncoder.encodedLength
-
-        // Calculate the size of the array of texxture arguments necessary to fit all textures in the buffer.
-        let textureArgumentArrayLength = textureArgumentSize * Int(NumTextures)
+        // Create buffers for arguments
+        // Calculate the size of the array of texture arguments necessary to fit all textures in the buffer.
+        let textureArgumentArrayLength = MemoryLayout<MTLResourceID>.stride * Int(NumTextures)
 
         // Create a buffer that will hold the arguments for all textures
         sourceTextures = device.makeBuffer(length: textureArgumentArrayLength)!
         sourceTextures.label = "Texture list"
 
+        let texPtr = sourceTextures.contents().bindMemory(to: MTLResourceID.self, capacity: textures.count)
+
         // Encode input arguments for our compute kernel
         for (i, texture) in textures.enumerated() {
-            // Calculate offset of the current texture argument in the argument buffer array.
-            let argumentBufferOffset = i * textureArgumentSize
-
-            // Set the offset to which the renderer will write the texture argument.
-            argumentEncoder.setArgumentBuffer(sourceTextures, offset: argumentBufferOffset)
-            argumentEncoder.setTexture(texture, index: Int(ArgumentBufferIDTexture.rawValue))
+            texPtr[i] = texture.gpuResourceID
         }
 
-        // Create an argument encoder to encode arguments output by the compute kernel and
-        // input to the render pipeline
-        let instanceParameterEncoder = computeFunction.makeArgumentEncoder(bufferIndex: Int(ComputeBufferIndexInstanceParams.rawValue))
-
-        // Create an argument buffer used for outputs from the compute kernel and inputs
+        // Create a buffer used for outputs from the compute kernel and inputs
         // for the render pipeline.
 
         // The encodedLength represents the size of the structure used to define the argument
         // buffer. Each instance needs its own structure, so we multiply encodedLength by the
         // number of instances so that we create a buffer which can hold data for each instance
         // rendered.
-        let instanceParameterLength = instanceParameterEncoder.encodedLength * Int(NumInstances)
+        let instanceParameterLength = MemoryLayout<InstanceArguments>.stride * Int(NumInstances)
 
         self.instanceParameters = device.makeBuffer(length: instanceParameterLength)!
         self.instanceParameters.label = "Instance parameters array"
 
         // Create render pipeline and objects used in the render pass
-
         guard let vertexFunction = defaultLibrary.makeFunction(name: "vertexShader"),
               let fragmentFunction = defaultLibrary.makeFunction(name: "fragmentShader") else {
             fatalError("Could not load shaders")
@@ -291,7 +283,6 @@ extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Calculate scale for quads so that they are always square when working with the default
         // viewport and sending down clip space coordinates
-
         if size.width < size.height {
             quadScale.x = 1.0
             quadScale.y = Float(size.width / size.height)
