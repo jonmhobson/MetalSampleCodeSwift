@@ -23,7 +23,7 @@ vertex RasterizerData
 vertexShader(uint                         vertexID      [[ vertex_id ]],
              uint                         objectIndex   [[ instance_id ]],
              const device AAPLVertex *    vertices      [[ buffer(AAPLVertexBufferIndexVertices) ]],
-             const device AAPLObjectPerameters* object_params [[ buffer(AAPLVertexBufferIndexObjectParams) ]],
+             const device AAPLObjectParameters* object_params [[ buffer(AAPLVertexBufferIndexObjectParams) ]],
              constant AAPLFrameState *    frame_state   [[ buffer(AAPLVertexBufferIndexFrameState) ]])
 {
     RasterizerData out;

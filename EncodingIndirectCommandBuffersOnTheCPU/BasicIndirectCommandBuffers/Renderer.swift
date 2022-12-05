@@ -68,13 +68,13 @@ final class Renderer: NSObject {
         }
 
         // Create and fill array containing parameters for each object
-        let objectParameterArraySize = Int(AAPLNumObjects) * MemoryLayout<AAPLObjectPerameters>.stride
+        let objectParameterArraySize = Int(AAPLNumObjects) * MemoryLayout<AAPLObjectParameters>.stride
 
         guard let paramBuffer = device.makeBuffer(length: objectParameterArraySize) else { fatalError() }
         objectParameters = paramBuffer
         objectParameters.label = "Object Parameters Array"
 
-        let params = objectParameters.contents().bindMemory(to: AAPLObjectPerameters.self, capacity: Int(AAPLNumObjects))
+        let params = objectParameters.contents().bindMemory(to: AAPLObjectParameters.self, capacity: Int(AAPLNumObjects))
         let offset = Float(AAPLObjectDistance / 2.0) * (Renderer.gridDimensions - Float(1.0))
         let gridWidth = Int(AAPLGridWidth)
 

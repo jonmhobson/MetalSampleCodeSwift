@@ -96,7 +96,7 @@ final class Renderer: NSObject {
         }
 
         // Create and fill array containing parameters for each object
-        let objectParameterArraySize = Int(AAPLNumObjects) * MemoryLayout<AAPLObjectPerameters>.stride
+        let objectParameterArraySize = Int(AAPLNumObjects) * MemoryLayout<AAPLObjectParameters>.stride
 
         guard let paramBuffer = device.makeBuffer(length: objectParameterArraySize) else { fatalError() }
         objectParameters = paramBuffer
@@ -112,7 +112,7 @@ final class Renderer: NSObject {
         vertexBuffer.label = "Combined vertex buffer"
 
         // Copy each mesh's data into the vertex buffer
-        let params = objectParameters.contents().bindMemory(to: AAPLObjectPerameters.self, capacity: Int(AAPLNumObjects))
+        let params = objectParameters.contents().bindMemory(to: AAPLObjectParameters.self, capacity: Int(AAPLNumObjects))
 
         var currentStartVertex = 0
 
@@ -165,14 +165,14 @@ final class Renderer: NSObject {
 
         let argumentEncoder = gpuCommandEncodingKernel.makeArgumentEncoder(
             bufferIndex: Int(AAPLKernelBufferIndexCommandBufferContainer.rawValue))
-
+        
         guard let icbBuffer = device.makeBuffer(length: argumentEncoder.encodedLength, options: [.storageModeShared]) else {
             fatalError()
         }
-
+        
         icbArgumentBuffer = icbBuffer
         icbArgumentBuffer.label = "ICB Argument Buffer"
-
+        
         argumentEncoder.setArgumentBuffer(icbArgumentBuffer, offset: 0)
         argumentEncoder.setIndirectCommandBuffer(indirectCommandBuffer, index: Int(AAPLArgumentBufferIDCommandBuffer.rawValue))
 

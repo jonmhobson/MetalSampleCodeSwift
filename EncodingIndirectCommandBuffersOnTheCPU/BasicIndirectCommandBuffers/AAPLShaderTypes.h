@@ -39,10 +39,10 @@ typedef struct AAPLFrameState
 } AAPLFrameState;
 
 // Structure defining parameters for each rendered object
-typedef struct AAPLObjectPerameters
+typedef struct AAPLObjectParameters
 {
     packed_float2 position;
-} AAPLObjectPerameters;
+} AAPLObjectParameters;
 
 // Buffer index values shared between the vertex shader and C code
 typedef enum AAPLVertexBufferIndex

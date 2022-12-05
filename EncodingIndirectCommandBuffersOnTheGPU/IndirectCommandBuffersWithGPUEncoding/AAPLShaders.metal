@@ -23,7 +23,7 @@ struct ICBContainer
 kernel void
 cullMeshesAndEncodeCommands(uint                         objectIndex   [[ thread_position_in_grid ]],
                             constant AAPLFrameState     *frame_state   [[ buffer(AAPLKernelBufferIndexFrameState) ]],
-                            device AAPLObjectPerameters *object_params [[ buffer(AAPLKernelBufferIndexObjectParams)]],
+                            device AAPLObjectParameters *object_params [[ buffer(AAPLKernelBufferIndexObjectParams)]],
                             device AAPLVertex           *vertices      [[ buffer(AAPLKernelBufferIndexVertices) ]],
                             device ICBContainer         *icb_container [[ buffer(AAPLKernelBufferIndexCommandBufferContainer) ]])
 {
@@ -80,7 +80,7 @@ vertex RasterizerData
 vertexShader(uint                     vertexID                [[ vertex_id ]],
              uint                     objectIndex             [[ instance_id ]],
              const device AAPLVertex* vertices                [[ buffer(AAPLVertexBufferIndexVertices) ]],
-             const device AAPLObjectPerameters *object_params [[ buffer(AAPLVertexBufferIndexObjectParams) ]],
+             const device AAPLObjectParameters *object_params [[ buffer(AAPLVertexBufferIndexObjectParams) ]],
              constant AAPLFrameState* frame_state             [[ buffer(AAPLVertexBufferIndexFrameState) ]])
 {
     RasterizerData out;
