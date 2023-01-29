@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9AAF934F2958960D00AF5B80 /* ForwardPlusLightingWithTileShadersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF934E2958960D00AF5B80 /* ForwardPlusLightingWithTileShadersApp.swift */; };
+		9AAF93512958960D00AF5B80 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF93502958960D00AF5B80 /* MetalView.swift */; };
+		9AAF93532958960E00AF5B80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF93522958960E00AF5B80 /* Assets.xcassets */; };
+		9AAF935E295896C700AF5B80 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF935D295896C700AF5B80 /* Renderer.swift */; };
+		9AAF93602958A04D00AF5B80 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF935F2958A04D00AF5B80 /* Shaders.metal */; };
+		9AAF9367295A28BA00AF5B80 /* DepthPass.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9366295A28BA00AF5B80 /* DepthPass.metal */; };
+		9AAF936A295A422A00AF5B80 /* Forward.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9369295A422A00AF5B80 /* Forward.metal */; };
+		9AAF936C295A4D7A00AF5B80 /* Fairy.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF936B295A4D7A00AF5B80 /* Fairy.metal */; };
+		9AAF936E295A55E300AF5B80 /* Culling.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF936D295A55E300AF5B80 /* Culling.metal */; };
+		9AAF9375295CE88500AF5B80 /* Meshes in Resources */ = {isa = PBXBuildFile; fileRef = 9AAF9374295CE88500AF5B80 /* Meshes */; };
+		9AAF9377295CEA6500AF5B80 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF9376295CEA6500AF5B80 /* Mesh.swift */; };
+		9AB67656295E384200D91B63 /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB67655295E384200D91B63 /* MathUtilities.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9AAF934B2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForwardPlusLightingWithTileShaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AAF934E2958960D00AF5B80 /* ForwardPlusLightingWithTileShadersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardPlusLightingWithTileShadersApp.swift; sourceTree = "<group>"; };
+		9AAF93502958960D00AF5B80 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		9AAF93522958960E00AF5B80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AAF93572958960E00AF5B80 /* ForwardPlusLightingWithTileShaders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ForwardPlusLightingWithTileShaders.entitlements; sourceTree = "<group>"; };
+		9AAF935D295896C700AF5B80 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		9AAF935F2958A04D00AF5B80 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		9AAF93612958A08A00AF5B80 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		9AAF93622958A1F400AF5B80 /* ForwardPlusLightingWithTileShaders-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ForwardPlusLightingWithTileShaders-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AAF9366295A28BA00AF5B80 /* DepthPass.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = DepthPass.metal; sourceTree = "<group>"; };
+		9AAF9368295A28DF00AF5B80 /* ShaderCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderCommon.h; sourceTree = "<group>"; };
+		9AAF9369295A422A00AF5B80 /* Forward.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Forward.metal; sourceTree = "<group>"; };
+		9AAF936B295A4D7A00AF5B80 /* Fairy.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Fairy.metal; sourceTree = "<group>"; };
+		9AAF936D295A55E300AF5B80 /* Culling.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Culling.metal; sourceTree = "<group>"; };
+		9AAF9374295CE88500AF5B80 /* Meshes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Meshes; sourceTree = "<group>"; };
+		9AAF9376295CEA6500AF5B80 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		9AB67655295E384200D91B63 /* MathUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtilities.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9AAF93482958960D00AF5B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9AAF93422958960D00AF5B80 = {
+			isa = PBXGroup;
+			children = (
+				9AAF934D2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders */,
+				9AAF934C2958960D00AF5B80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9AAF934C2958960D00AF5B80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AAF934B2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9AAF934D2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders */ = {
+			isa = PBXGroup;
+			children = (
+				9AAF934E2958960D00AF5B80 /* ForwardPlusLightingWithTileShadersApp.swift */,
+				9AAF93502958960D00AF5B80 /* MetalView.swift */,
+				9AAF935D295896C700AF5B80 /* Renderer.swift */,
+				9AAF9376295CEA6500AF5B80 /* Mesh.swift */,
+				9AB67655295E384200D91B63 /* MathUtilities.swift */,
+				9AAF93522958960E00AF5B80 /* Assets.xcassets */,
+				9AAF93572958960E00AF5B80 /* ForwardPlusLightingWithTileShaders.entitlements */,
+				9AAF935F2958A04D00AF5B80 /* Shaders.metal */,
+				9AAF9366295A28BA00AF5B80 /* DepthPass.metal */,
+				9AAF936B295A4D7A00AF5B80 /* Fairy.metal */,
+				9AAF9369295A422A00AF5B80 /* Forward.metal */,
+				9AAF936D295A55E300AF5B80 /* Culling.metal */,
+				9AAF93612958A08A00AF5B80 /* ShaderTypes.h */,
+				9AAF9368295A28DF00AF5B80 /* ShaderCommon.h */,
+				9AAF93622958A1F400AF5B80 /* ForwardPlusLightingWithTileShaders-Bridging-Header.h */,
+				9AAF9374295CE88500AF5B80 /* Meshes */,
+			);
+			path = ForwardPlusLightingWithTileShaders;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9AAF934A2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AAF935A2958960E00AF5B80 /* Build configuration list for PBXNativeTarget "ForwardPlusLightingWithTileShaders" */;
+			buildPhases = (
+				9AAF93472958960D00AF5B80 /* Sources */,
+				9AAF93482958960D00AF5B80 /* Frameworks */,
+				9AAF93492958960D00AF5B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForwardPlusLightingWithTileShaders;
+			productName = ForwardPlusLightingWithTileShaders;
+			productReference = 9AAF934B2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9AAF93432958960D00AF5B80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					9AAF934A2958960D00AF5B80 = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
+				};
+			};
+			buildConfigurationList = 9AAF93462958960D00AF5B80 /* Build configuration list for PBXProject "ForwardPlusLightingWithTileShaders" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9AAF93422958960D00AF5B80;
+			productRefGroup = 9AAF934C2958960D00AF5B80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AAF934A2958960D00AF5B80 /* ForwardPlusLightingWithTileShaders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AAF93492958960D00AF5B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AAF93532958960E00AF5B80 /* Assets.xcassets in Resources */,
+				9AAF9375295CE88500AF5B80 /* Meshes in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9AAF93472958960D00AF5B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AAF93602958A04D00AF5B80 /* Shaders.metal in Sources */,
+				9AAF936C295A4D7A00AF5B80 /* Fairy.metal in Sources */,
+				9AAF93512958960D00AF5B80 /* MetalView.swift in Sources */,
+				9AAF935E295896C700AF5B80 /* Renderer.swift in Sources */,
+				9AB67656295E384200D91B63 /* MathUtilities.swift in Sources */,
+				9AAF936E295A55E300AF5B80 /* Culling.metal in Sources */,
+				9AAF934F2958960D00AF5B80 /* ForwardPlusLightingWithTileShadersApp.swift in Sources */,
+				9AAF9377295CEA6500AF5B80 /* Mesh.swift in Sources */,
+				9AAF9367295A28BA00AF5B80 /* DepthPass.metal in Sources */,
+				9AAF936A295A422A00AF5B80 /* Forward.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9AAF93582958960E00AF5B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9AAF93592958960E00AF5B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9AAF935B2958960E00AF5B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ForwardPlusLightingWithTileShaders/ForwardPlusLightingWithTileShaders.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.ForwardPlusLightingWithTileShaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ForwardPlusLightingWithTileShaders/ForwardPlusLightingWithTileShaders-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9AAF935C2958960E00AF5B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ForwardPlusLightingWithTileShaders/ForwardPlusLightingWithTileShaders.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 232RDC7V36;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.ForwardPlusLightingWithTileShaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ForwardPlusLightingWithTileShaders/ForwardPlusLightingWithTileShaders-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AAF93462958960D00AF5B80 /* Build configuration list for PBXProject "ForwardPlusLightingWithTileShaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AAF93582958960E00AF5B80 /* Debug */,
+				9AAF93592958960E00AF5B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AAF935A2958960E00AF5B80 /* Build configuration list for PBXNativeTarget "ForwardPlusLightingWithTileShaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AAF935B2958960E00AF5B80 /* Debug */,
+				9AAF935C2958960E00AF5B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9AAF93432958960D00AF5B80 /* Project object */;
+}
