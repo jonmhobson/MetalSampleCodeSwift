@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9AFA7965288724BC00F5B349 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA7964288724BC00F5B349 /* main.swift */; };
 		9AFA796C2887268000F5B349 /* add.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA796B2887268000F5B349 /* add.metal */; };
+		9AFB18A02BCAB2CE00AADA63 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB189F2BCAB2CE00AADA63 /* Util.swift */; };
+		9AFB18A22BCACB1400AADA63 /* MetalAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB18A12BCACB1400AADA63 /* MetalAdder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,8 @@
 		9AFA7961288724BC00F5B349 /* MetalComputeBasic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MetalComputeBasic; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFA7964288724BC00F5B349 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9AFA796B2887268000F5B349 /* add.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = add.metal; sourceTree = "<group>"; };
+		9AFB189F2BCAB2CE00AADA63 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		9AFB18A12BCACB1400AADA63 /* MetalAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalAdder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				9AFA7964288724BC00F5B349 /* main.swift */,
+				9AFB18A12BCACB1400AADA63 /* MetalAdder.swift */,
+				9AFB189F2BCAB2CE00AADA63 /* Util.swift */,
 				9AFA796B2887268000F5B349 /* add.metal */,
 			);
 			path = MetalComputeBasic;
@@ -93,7 +99,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					9AFA7960288724BC00F5B349 = {
 						CreatedOnToolsVersion = 14.0;
@@ -123,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AFB18A02BCAB2CE00AADA63 /* Util.swift in Sources */,
 				9AFA7965288724BC00F5B349 /* main.swift in Sources */,
+				9AFB18A22BCACB1400AADA63 /* MetalAdder.swift in Sources */,
 				9AFA796C2887268000F5B349 /* add.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,9 +172,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -188,6 +198,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -224,9 +235,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -241,6 +254,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -248,7 +262,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -259,7 +274,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
