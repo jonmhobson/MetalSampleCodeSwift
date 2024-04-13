@@ -7,8 +7,7 @@ final class Renderer: NSObject {
     private let commandQueue: any MTLCommandQueue
 
     init(device: any MTLDevice) {
-        guard let device = MTLCreateSystemDefaultDevice(),
-              let commandQueue = device.makeCommandQueue() else { fatalError() }
+        guard let commandQueue = device.makeCommandQueue() else { fatalError() }
 
         self.device = device
         self.commandQueue = commandQueue

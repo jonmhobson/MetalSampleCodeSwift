@@ -1,22 +1,19 @@
 import Foundation
 import MetalKit
 
+@MainActor
 final class Renderer: NSObject {
-    private let device: MTLDevice
-    private let commandQueue: MTLCommandQueue
-    private let pipelineState: MTLRenderPipelineState
+    private let device: any MTLDevice
+    private let commandQueue: any MTLCommandQueue
+    private let pipelineState: any MTLRenderPipelineState
 
-    var viewportSize: vector_uint2 = [0, 0]
+    private var viewportSize: SIMD2<UInt32> = [0, 0]
 
-    init(metalView: MTKView) {
-        guard let device = MTLCreateSystemDefaultDevice(),
-              let commandQueue = device.makeCommandQueue() else { fatalError() }
+    init(device: any MTLDevice, pixelFormat: MTLPixelFormat) {
+        guard let commandQueue = device.makeCommandQueue() else { fatalError() }
 
         self.device = device
         self.commandQueue = commandQueue
-
-        metalView.device = device
-        metalView.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)
 
         guard let defaultLibrary = device.makeDefaultLibrary(),
               let vertexFunction = defaultLibrary.makeFunction(name: "vertexShader"),
@@ -26,23 +23,15 @@ final class Renderer: NSObject {
         pipelineStateDescriptor.label = "Simple Pipeline"
         pipelineStateDescriptor.vertexFunction = vertexFunction
         pipelineStateDescriptor.fragmentFunction = fragmentFunction
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = metalView.colorPixelFormat
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = pixelFormat
 
-        self.pipelineState = {
-            do {
-                return try device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
-            } catch {
-                fatalError("Failed to create pipeline state: \(error)")
-            }
-        }()
-
-        super.init()
-
-        metalView.delegate = self
+        do {
+            self.pipelineState = try device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
+        } catch {
+            fatalError("Failed to create pipeline state: \(error)")
+        }
     }
-}
 
-extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         viewportSize = [UInt32(size.width), UInt32(size.height)]
     }
@@ -54,6 +43,7 @@ extension Renderer: MTKViewDelegate {
     ]
 
     func draw(in view: MTKView) {
+        // The render pass descriptor references the texture into which Metal should draw
         guard let renderPassDescriptor = view.currentRenderPassDescriptor,
               let commandBuffer = commandQueue.makeCommandBuffer(),
               let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else { return }

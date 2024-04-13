@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AFA799D28874B2000F5B349 /* HelloTriangleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA799C28874B2000F5B349 /* HelloTriangleApp.swift */; };
+		9AFA799D28874B2000F5B349 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA799C28874B2000F5B349 /* App.swift */; };
 		9AFA799F28874B2000F5B349 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA799E28874B2000F5B349 /* MetalView.swift */; };
 		9AFA79AC28874DF200F5B349 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79AB28874DF200F5B349 /* Renderer.swift */; };
 		9AFA79B328874F5200F5B349 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79B228874F5200F5B349 /* AAPLShaders.metal */; };
@@ -15,11 +15,9 @@
 
 /* Begin PBXFileReference section */
 		9AFA799928874B2000F5B349 /* HelloTriangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloTriangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AFA799C28874B2000F5B349 /* HelloTriangleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloTriangleApp.swift; sourceTree = "<group>"; };
+		9AFA799C28874B2000F5B349 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9AFA799E28874B2000F5B349 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		9AFA79A528874B2100F5B349 /* HelloTriangle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelloTriangle.entitlements; sourceTree = "<group>"; };
 		9AFA79AB28874DF200F5B349 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
-		9AFA79AD28874F2500F5B349 /* HelloTriangle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloTriangle-Bridging-Header.h"; sourceTree = "<group>"; };
 		9AFA79B128874F3700F5B349 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
 		9AFA79B228874F5200F5B349 /* AAPLShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,13 +52,11 @@
 		9AFA799B28874B2000F5B349 /* HelloTriangle */ = {
 			isa = PBXGroup;
 			children = (
-				9AFA799C28874B2000F5B349 /* HelloTriangleApp.swift */,
+				9AFA799C28874B2000F5B349 /* App.swift */,
 				9AFA799E28874B2000F5B349 /* MetalView.swift */,
 				9AFA79AB28874DF200F5B349 /* Renderer.swift */,
 				9AFA79B128874F3700F5B349 /* AAPLShaderTypes.h */,
 				9AFA79B228874F5200F5B349 /* AAPLShaders.metal */,
-				9AFA79A528874B2100F5B349 /* HelloTriangle.entitlements */,
-				9AFA79AD28874F2500F5B349 /* HelloTriangle-Bridging-Header.h */,
 			);
 			path = HelloTriangle;
 			sourceTree = "<group>";
@@ -93,7 +89,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					9AFA799828874B2000F5B349 = {
 						CreatedOnToolsVersion = 14.0;
@@ -137,7 +133,7 @@
 				9AFA799F28874B2000F5B349 /* MetalView.swift in Sources */,
 				9AFA79AC28874DF200F5B349 /* Renderer.swift in Sources */,
 				9AFA79B328874F5200F5B349 /* AAPLShaders.metal in Sources */,
-				9AFA799D28874B2000F5B349 /* HelloTriangleApp.swift in Sources */,
+				9AFA799D28874B2000F5B349 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,9 +173,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -201,6 +199,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -237,9 +236,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -254,6 +255,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -262,12 +264,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = HelloTriangle/HelloTriangle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HelloTriangle/Preview Content\"";
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -281,7 +282,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sample.hellotriangle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HelloTriangle/HelloTriangle-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = HelloTriangle/AAPLShaderTypes.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -292,12 +293,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = HelloTriangle/HelloTriangle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HelloTriangle/Preview Content\"";
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,7 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sample.hellotriangle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HelloTriangle/HelloTriangle-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = HelloTriangle/AAPLShaderTypes.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
