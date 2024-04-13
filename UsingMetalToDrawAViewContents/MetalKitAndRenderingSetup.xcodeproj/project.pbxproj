@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AFA797F288742E800F5B349 /* MetalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA797E288742E800F5B349 /* MetalApp.swift */; };
+		9AFA797F288742E800F5B349 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA797E288742E800F5B349 /* App.swift */; };
 		9AFA7981288742E800F5B349 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA7980288742E800F5B349 /* MetalView.swift */; };
 		9AFA798E288744E100F5B349 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA798D288744E100F5B349 /* Renderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9AFA797B288742E800F5B349 /* MetalKitAndRenderingSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalKitAndRenderingSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AFA797E288742E800F5B349 /* MetalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalApp.swift; sourceTree = "<group>"; };
+		9AFA797E288742E800F5B349 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9AFA7980288742E800F5B349 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		9AFA7987288742E900F5B349 /* MetalKitAndRenderingSetup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetalKitAndRenderingSetup.entitlements; sourceTree = "<group>"; };
 		9AFA798D288744E100F5B349 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,10 +49,9 @@
 		9AFA797D288742E800F5B349 /* MetalKitAndRenderingSetup */ = {
 			isa = PBXGroup;
 			children = (
-				9AFA797E288742E800F5B349 /* MetalApp.swift */,
+				9AFA797E288742E800F5B349 /* App.swift */,
 				9AFA7980288742E800F5B349 /* MetalView.swift */,
 				9AFA798D288744E100F5B349 /* Renderer.swift */,
-				9AFA7987288742E900F5B349 /* MetalKitAndRenderingSetup.entitlements */,
 			);
 			path = MetalKitAndRenderingSetup;
 			sourceTree = "<group>";
@@ -86,7 +84,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					9AFA797A288742E800F5B349 = {
 						CreatedOnToolsVersion = 14.0;
@@ -128,7 +126,7 @@
 			files = (
 				9AFA7981288742E800F5B349 /* MetalView.swift in Sources */,
 				9AFA798E288744E100F5B349 /* Renderer.swift in Sources */,
-				9AFA797F288742E800F5B349 /* MetalApp.swift in Sources */,
+				9AFA797F288742E800F5B349 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,9 +166,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -192,6 +192,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -228,9 +229,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -245,6 +248,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -252,12 +256,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MetalKitAndRenderingSetup/MetalKitAndRenderingSetup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MetalKitAndRenderingSetup/Preview Content\"";
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -266,10 +269,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.MetalKitAndRenderingSetup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -278,12 +283,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MetalKitAndRenderingSetup/MetalKitAndRenderingSetup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MetalKitAndRenderingSetup/Preview Content\"";
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -292,10 +296,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jonmhobson.MetalKitAndRenderingSetup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
