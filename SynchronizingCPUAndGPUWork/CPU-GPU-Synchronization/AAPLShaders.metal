@@ -27,11 +27,11 @@ struct RasterizerData
     float4 color;
 };
 
-vertex RasterizerData
+[[vertex]]
+RasterizerData
 vertexShader(uint vertexID [[vertex_id]],
              const device AAPLVertex *vertices [[buffer(AAPLVertexInputIndexVertices)]],
-             constant vector_uint2 *viewportSizePointer [[buffer(AAPLVertexInputIndexViewportSize)]])
-{
+             constant vector_uint2 *viewportSizePointer [[buffer(AAPLVertexInputIndexViewportSize)]]) {
     RasterizerData out;
 
     // Index into the array of positions to get the current vertex.
@@ -54,8 +54,8 @@ vertexShader(uint vertexID [[vertex_id]],
     return out;
 }
 
-fragment float4 fragmentShader(RasterizerData in [[stage_in]])
-{
+[[fragment]]
+float4 fragmentShader(RasterizerData in [[stage_in]]) {
     // Return the interpolated color.
     return in.color;
 }

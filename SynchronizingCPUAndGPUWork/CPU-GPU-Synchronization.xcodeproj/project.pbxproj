@@ -10,7 +10,7 @@
 		9AFA79C1288762DC00F5B349 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79C0288762DC00F5B349 /* App.swift */; };
 		9AFA79C3288762DC00F5B349 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79C2288762DC00F5B349 /* MetalView.swift */; };
 		9AFA79D0288763B300F5B349 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79CF288763B300F5B349 /* Renderer.swift */; };
-		9AFA79D92887647300F5B349 /* AAPLTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79D82887647300F5B349 /* AAPLTriangle.swift */; };
+		9AFA79D92887647300F5B349 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79D82887647300F5B349 /* Triangle.swift */; };
 		9AFA79F728881B6000F5B349 /* AAPLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA79F528881B6000F5B349 /* AAPLShaders.metal */; };
 /* End PBXBuildFile section */
 
@@ -18,10 +18,8 @@
 		9AFA79BD288762DC00F5B349 /* CPU-GPU-Synchronization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPU-GPU-Synchronization.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFA79C0288762DC00F5B349 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9AFA79C2288762DC00F5B349 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		9AFA79C9288762DE00F5B349 /* CPU_GPU_Synchronization.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CPU_GPU_Synchronization.entitlements; sourceTree = "<group>"; };
 		9AFA79CF288763B300F5B349 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
-		9AFA79D1288763DD00F5B349 /* CPU-GPU-Synchronization-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPU-GPU-Synchronization-Bridging-Header.h"; sourceTree = "<group>"; };
-		9AFA79D82887647300F5B349 /* AAPLTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPLTriangle.swift; sourceTree = "<group>"; };
+		9AFA79D82887647300F5B349 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		9AFA79F528881B6000F5B349 /* AAPLShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AAPLShaders.metal; sourceTree = "<group>"; };
 		9AFA79F628881B6000F5B349 /* AAPLShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLShaderTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,14 +54,12 @@
 		9AFA79BF288762DC00F5B349 /* CPU-GPU-Synchronization */ = {
 			isa = PBXGroup;
 			children = (
-				9AFA79F528881B6000F5B349 /* AAPLShaders.metal */,
-				9AFA79F628881B6000F5B349 /* AAPLShaderTypes.h */,
 				9AFA79C0288762DC00F5B349 /* App.swift */,
 				9AFA79C2288762DC00F5B349 /* MetalView.swift */,
 				9AFA79CF288763B300F5B349 /* Renderer.swift */,
-				9AFA79D82887647300F5B349 /* AAPLTriangle.swift */,
-				9AFA79C9288762DE00F5B349 /* CPU_GPU_Synchronization.entitlements */,
-				9AFA79D1288763DD00F5B349 /* CPU-GPU-Synchronization-Bridging-Header.h */,
+				9AFA79D82887647300F5B349 /* Triangle.swift */,
+				9AFA79F528881B6000F5B349 /* AAPLShaders.metal */,
+				9AFA79F628881B6000F5B349 /* AAPLShaderTypes.h */,
 			);
 			path = "CPU-GPU-Synchronization";
 			sourceTree = "<group>";
@@ -96,7 +92,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					9AFA79BC288762DC00F5B349 = {
 						CreatedOnToolsVersion = 14.0;
@@ -139,7 +135,7 @@
 			files = (
 				9AFA79C3288762DC00F5B349 /* MetalView.swift in Sources */,
 				9AFA79D0288763B300F5B349 /* Renderer.swift in Sources */,
-				9AFA79D92887647300F5B349 /* AAPLTriangle.swift in Sources */,
+				9AFA79D92887647300F5B349 /* Triangle.swift in Sources */,
 				9AFA79F728881B6000F5B349 /* AAPLShaders.metal in Sources */,
 				9AFA79C1288762DC00F5B349 /* App.swift in Sources */,
 			);
@@ -181,9 +177,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -205,6 +203,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -241,9 +240,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -258,6 +259,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -266,11 +268,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CPU-GPU-Synchronization/CPU_GPU_Synchronization.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -283,7 +285,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jonmhobson.CPU-GPU-Synchronization";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/CPU-GPU-Synchronization-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/AAPLShaderTypes.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -294,11 +296,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CPU-GPU-Synchronization/CPU_GPU_Synchronization.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 232RDC7V36;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,7 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jonmhobson.CPU-GPU-Synchronization";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/CPU-GPU-Synchronization-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CPU-GPU-Synchronization/AAPLShaderTypes.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

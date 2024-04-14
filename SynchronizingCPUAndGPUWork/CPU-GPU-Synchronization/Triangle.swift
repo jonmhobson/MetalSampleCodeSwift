@@ -1,6 +1,6 @@
 import Foundation
 
-struct AAPLTriangle {
+struct Triangle {
     static let vertices: [AAPLVertex] = {
         let triangleSize: Float = 64.0
         return [

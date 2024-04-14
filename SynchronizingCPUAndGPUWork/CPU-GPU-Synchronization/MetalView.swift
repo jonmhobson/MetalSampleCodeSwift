@@ -1,34 +1,53 @@
 import SwiftUI
 import MetalKit
 
-class MetalViewInteractor: ObservableObject {
-    let renderer: Renderer
-    let metalView = MTKView()
+struct MetalView: NSViewRepresentable {
+    @MainActor
+    final class Coordinator: NSObject, MTKViewDelegate {
+        private let renderer: Renderer
+        let device: MTLDevice
+        let colorPixelFormat = MTLPixelFormat.bgra8Unorm
 
-    init() {
-        renderer = Renderer(metalView: metalView)
-    }
-}
+        init(_ parent: MetalView) {
+            guard let device = MTLCreateSystemDefaultDevice() else { fatalError() }
+            self.device = device
+            self.renderer = Renderer(device: device, pixelFormat: colorPixelFormat)
+        }
 
-struct MetalView: View {
-    @StateObject var viewInteractor = MetalViewInteractor()
+        // Swift 6 concurrency note: We have to do a little nonisolated / assumeIsolated
+        // dance here because these delegate functions will always be called on the main thread.
+        // but the protocol does not annotate this actor conformance.
+        nonisolated func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+            MainActor.assumeIsolated {
+                renderer.mtkView(view, drawableSizeWillChange: size)
+            }
+        }
 
-    var body: some View {
-        VStack {
-            MetalViewRepresentable(metalView: viewInteractor.metalView)
+        nonisolated func draw(in view: MTKView) {
+            MainActor.assumeIsolated {
+                renderer.draw(in: view)
+            }
         }
     }
-}
 
-struct MetalViewRepresentable: NSViewRepresentable {
-    let metalView: MTKView
-    func makeNSView(context: Context) -> some NSView { metalView }
-    func updateNSView(_ nsView: NSViewType, context: Context) { updateMetalView() }
-    func updateMetalView() {}
-}
-
-struct MetalView_Previews: PreviewProvider {
-    static var previews: some View {
-        MetalView()
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
+
+    func makeNSView(context: Context) -> some NSView {
+        let metalView = MTKView()
+
+        metalView.colorPixelFormat = context.coordinator.colorPixelFormat
+        metalView.device = context.coordinator.device
+        metalView.delegate = context.coordinator
+        metalView.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)
+
+        return metalView
+    }
+
+    func updateNSView(_ nsView: NSViewType, context: Context) {}
+}
+
+#Preview {
+    MetalView()
 }

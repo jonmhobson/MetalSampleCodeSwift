@@ -4,31 +4,28 @@ import MetalKit
 private let maxFramesInFlight = 3
 private let numTriangles = 50
 
+@MainActor
 final class Renderer: NSObject {
-    private let inFlightSemaphore = DispatchSemaphore(value: maxFramesInFlight)
-    private var vertexBuffers: [MTLBuffer] = []
-
     private let device: MTLDevice
     private let commandQueue: MTLCommandQueue
     private let pipelineState: MTLRenderPipelineState
+
+    private let inFlightSemaphore = DispatchSemaphore(value: maxFramesInFlight)
+    private var vertexBuffers: [MTLBuffer] = []
 
     private var totalVertexCount: Int = 0
     private var currentBufferIndex = 0
 
     private var viewportSize: simd_uint2 = [0, 0]
-    private var triangles: [AAPLTriangle] = []
+    private var triangles: [Triangle] = []
 
     private var wavePosition: Float = 0.0
 
-    init(metalView: MTKView) {
-        guard let device = MTLCreateSystemDefaultDevice(),
-              let commandQueue = device.makeCommandQueue() else { fatalError() }
+    init(device: any MTLDevice, pixelFormat: MTLPixelFormat) {
+        guard let commandQueue = device.makeCommandQueue() else { fatalError() }
 
         self.device = device
         self.commandQueue = commandQueue
-
-        metalView.device = device
-        metalView.clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)
 
         guard let defaultLibrary = device.makeDefaultLibrary(),
               let vertexFunction = defaultLibrary.makeFunction(name: "vertexShader"),
@@ -38,7 +35,7 @@ final class Renderer: NSObject {
         pipelineStateDescriptor.label = "MyPipeline"
         pipelineStateDescriptor.vertexFunction = vertexFunction
         pipelineStateDescriptor.fragmentFunction = fragmentFunction
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = metalView.colorPixelFormat
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = pixelFormat
         pipelineStateDescriptor.vertexBuffers[Int(AAPLVertexInputIndexVertices.rawValue)].mutability = .immutable
 
         self.pipelineState = {
@@ -53,7 +50,7 @@ final class Renderer: NSObject {
 
         generateTriangles()
 
-        let triangleVertexCount = AAPLTriangle.vertices.count
+        let triangleVertexCount = Triangle.vertices.count
         self.totalVertexCount = triangleVertexCount * numTriangles
         let triangleVertexBufferSize = MemoryLayout<AAPLVertex>.stride * totalVertexCount
 
@@ -63,8 +60,6 @@ final class Renderer: NSObject {
                 vertexBuffers.append(buffer)
             }
         }
-
-        metalView.delegate = self
     }
 
     func generateTriangles() {
@@ -86,19 +81,15 @@ final class Renderer: NSObject {
         triangles = (0..<numTriangles).map { t in
             let half = Float(numTriangles) * 0.5
             let x = Float(t) - half
-            return AAPLTriangle(position: [x * horizontalSpacing, 0], color: colors[t % numColors])
+            return Triangle(position: [x * horizontalSpacing, 0], color: colors[t % numColors])
         }
     }
-}
 
-extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        generateTriangles()
-
         viewportSize = [UInt32(size.width), UInt32(size.height)]
     }
 
-    static let triangleVertices: [AAPLVertex] = [
+    static private let triangleVertices: [AAPLVertex] = [
         AAPLVertex(position: [ 250, -250], color: [1, 0, 0, 1]),
         AAPLVertex(position: [-250, -250], color: [0, 1, 0, 1]),
         AAPLVertex(position: [   0,  250], color: [0, 0, 1, 1])
@@ -110,7 +101,7 @@ extension Renderer: MTKViewDelegate {
 
         wavePosition += waveSpeed
 
-        let triangleVertices = AAPLTriangle.vertices
+        let triangleVertices = Triangle.vertices
         let triangleVertexCount = triangleVertices.count
 
         let currentVertices = vertexBuffers[currentBufferIndex].contents().bindMemory(to: AAPLVertex.self, capacity: triangleVertexCount)
