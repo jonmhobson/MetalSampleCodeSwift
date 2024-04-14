@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:UsingMetalToDrawAViewContents/MetalKitAndRenderingSetup.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UsingArgumentBuffersWithResourceHeaps/ArgumentBufferArraysWithHeaps/ArgumentBufferArraysWithHeaps.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UsingARenderPipelineToRenderPrimitives/HelloTriangle.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SynchronizingCPUAndGPUWork/CPU-GPU-Synchronization.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RenderingReflectionsInRealTimeUsingRayTracing/HybridRendering.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RenderingASceneWithForwardPlusLightingUsingTileShaders/ForwardPlusLightingWithTileShaders/ForwardPlusLightingWithTileShaders.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:ProcessingATextureInAComputeFunction/TextureCompute.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PerformingCalculationsOnAGPU/MetalComputeBasic.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ManagingGroupsOfResourcesWithArgumentBuffers/BasicArgumentBuffers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ImplementingAMultistageImageFilterUsingHeapsAndFences/ImageFilteringWithHeapsAndFences.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ImplementingAMultistageImageFilterUsingHeapsAndEvents/ImageFilteringWithHeapsAndEvents.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:EncodingIndirectCommandBuffersOnTheGPU/IndirectCommandBuffersWithGPUEncoding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:EncodingIndirectCommandBuffersOnTheCPU/BasicIndirectCommandBuffers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:EncodingArgumentBuffersOnTheGPU/GPUArgumentBufferEncoding/GPUArgumentBufferEncoding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CustomizingRenderPassSetup/CustomRenderPassSetup.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CreatingAndSamplingTextures/BasicTexturing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CalculatingPrimitiveVisibilityUsingDepthTesting/DepthTesting.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AdjustingTheLevelOfDetailUsingMetalMeshShaders/MeshShadersMetalSwift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AcceleratingRayTracingUsingMetal/MTLRaytracingSampleSwift.xcodeproj">
+   </FileRef>
+</Workspace>

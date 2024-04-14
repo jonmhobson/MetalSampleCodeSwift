@@ -35,7 +35,7 @@ func TexturefromRadianceFile(filename: String, device: MTLDevice) -> MTLTexture?
 
     let bpp = loadedImage.bitsPerPixel
 
-    let sourceChannelCount = 3
+    let sourceChannelCount = 4
     let bitsPerByte = 8
     let expectedBPP = MemoryLayout<UInt16>.stride * sourceChannelCount * bitsPerByte
 
@@ -53,10 +53,10 @@ func TexturefromRadianceFile(filename: String, device: MTLDevice) -> MTLTexture?
     var dstData: [RGBA16Pixel] = []
     dstData.reserveCapacity(pixelCount)
 
-    srcData.withMemoryRebound(to: RGB16Pixel.self, capacity: pixelCount) { ptr in
+    srcData.withMemoryRebound(to: RGBA16Pixel.self, capacity: pixelCount) { ptr in
         var i = 0
         while i < pixelCount {
-            dstData.append(RGBA16Pixel(rgb: ptr[i]))
+            dstData.append(ptr[i])
             i += 1
         }
     }
