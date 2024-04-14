@@ -1,11 +1,11 @@
 import Foundation
 import MetalKit
 
+@MainActor
 final class Renderer: NSObject {
-    private let device: MTLDevice
-    private let commandQueue: MTLCommandQueue
-
-    private let pipelineState: MTLRenderPipelineState
+    private let device: any MTLDevice
+    private let commandQueue: any MTLCommandQueue
+    private let pipelineState: any MTLRenderPipelineState
 
     private let vertexBuffer: MTLBuffer
     private let textures: [MTLTexture]
@@ -181,15 +181,12 @@ final class Renderer: NSObject {
         commandBuffer.commit()
     }
 
-    init(metalView: MTKView) {
+    init(device: any MTLDevice, colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
         guard let device = MTLCreateSystemDefaultDevice(),
               let commandQueue = device.makeCommandQueue() else { fatalError() }
 
         self.device = device
         self.commandQueue = commandQueue
-
-        metalView.device = device
-        metalView.clearColor = MTLClearColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
 
         guard let vertexBuffer = device.makeBuffer(
             bytes: Self.vertexData,
@@ -225,7 +222,7 @@ final class Renderer: NSObject {
         pipelineStateDescriptor.label = "Argument Buffer Example"
         pipelineStateDescriptor.vertexFunction = vertexFunction
         pipelineStateDescriptor.fragmentFunction = fragmentFunction
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = metalView.colorPixelFormat
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = colorPixelFormat
         self.pipelineState = {
             do {
                 return try device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
@@ -263,14 +260,8 @@ final class Renderer: NSObject {
                 constPtr[i] = UInt32(buffer.length / MemoryLayout<Float>.stride)
             }
         }
-
-        super.init()
-
-        metalView.delegate = self
     }
-}
 
-extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Calculate a viewport so that it's always square and in the middle of the drawable
 
